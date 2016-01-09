@@ -61,9 +61,9 @@ public abstract class BaseEspressoActivityTest {
         PreferenceUtils.setInstance(mockPreferenceUtils);
 
         List<Team> teams = new ArrayList<>();
-        Team team = new Team(Arrays.asList(new Participant("a1", "1"), new Participant("a2", "2"), new Participant("a3", "3")));
+        Team team = new Team(0, Arrays.asList(new Participant("a1", "1"), new Participant("a2", "2"), new Participant("a3", "3")));
         teams.add(team);
-        team = new Team(Arrays.asList(new Participant("c1", "1"), new Participant("c2", "2"), new Participant("c3", "3")));
+        team = new Team(1, Arrays.asList(new Participant("c1", "1"), new Participant("c2", "2"), new Participant("c3", "3")));
         teams.add(team);
         Utils mockUtils = mock(Utils.class);
         when(mockUtils.calculateTeams()).thenReturn(teams);

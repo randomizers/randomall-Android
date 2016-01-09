@@ -67,14 +67,16 @@ public class Result implements Realmable {
         RealmResult realmResult = (RealmResult) realmObject;
         name = realmResult.getName();
         RealmList<RealmTeam> realmTeams = realmResult.getRealmTeams();
+        int position = 0;
         for (RealmTeam realmTeam : realmTeams) {
             List<Participant> participants = new ArrayList<>();
             for (RealmParticipant realmParticipant : realmTeam.getRealmParticipants()) {
                 Participant participant = new Participant(realmParticipant.getName(), realmParticipant.getSeed());
                 participants.add(participant);
             }
-            Team team = new Team(participants);
+            Team team = new Team(position, participants);
             teams.add(team);
+            position++;
         }
 
         return this;
