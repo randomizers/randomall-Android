@@ -6,9 +6,3 @@ dependencies:
   pre:
     - echo y | android update sdk --no-ui --all --filter "build-tools-23.0.1"
     - chmod +x $APP_HOME/gradlew
-    - chmod +x $APP_HOME/install-dependencies.sh
-  cache_directories:
-    - ~/.android
-    - ~/android
-  override:
-    - ./install-dependencies.sh
