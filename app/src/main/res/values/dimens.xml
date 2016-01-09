@@ -21,4 +21,7 @@
     <dimen name="blue_button_bg_radius">24dp</dimen>
     <dimen name="randomizer_item_margin">20dp</dimen>
     <dimen name="seed_edit_text_width">100dp</dimen>
+    <dimen name="edit_dialog_button_width">100dp</dimen>
+    <dimen name="edit_dialog_name_width">150dp</dimen>
+    <dimen name="edit_dialog_seed_width">100dp</dimen>
 </resources>

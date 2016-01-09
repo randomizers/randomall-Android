@@ -3,14 +3,14 @@ package com.example.hackathon.random.model;
 /**
  * Created by hackathon on 1/9/16.
  */
-public class Person {
+public class Participant {
     private String name;
     private String seed;
 
-    public Person() {
+    public Participant() {
     }
 
-    public Person(String name, String seed) {
+    public Participant(String name, String seed) {
         this.name = name;
         this.seed = seed;
     }
@@ -33,7 +33,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "Participant{" +
                 "name='" + name + '\'' +
                 ", seed='" + seed + '\'' +
                 '}';

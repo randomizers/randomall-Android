@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.hackathon.random.R;
-import com.example.hackathon.random.model.Person;
+import com.example.hackathon.random.model.Participant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +18,10 @@ import java.util.List;
  */
 public class RecyclerRandomizerListAdapter extends RecyclerView.Adapter<RecyclerRandomizerListAdapter.ViewHolder> {
 
-    private List<Person> mDataSource;
+    private List<Participant> mDataSource;
     private Context mContext;
 
-    public RecyclerRandomizerListAdapter(Context context, List<Person> dataSource) {
+    public RecyclerRandomizerListAdapter(Context context, List<Participant> dataSource) {
         mContext = context;
         if (dataSource == null) {
             mDataSource = new ArrayList<>();
@@ -30,7 +30,7 @@ public class RecyclerRandomizerListAdapter extends RecyclerView.Adapter<Recycler
         }
     }
 
-    public void updateDataSource(List<Person> dataSource) {
+    public void updateDataSource(List<Participant> dataSource) {
         mDataSource = dataSource;
         notifyDataSetChanged();
     }
@@ -43,7 +43,7 @@ public class RecyclerRandomizerListAdapter extends RecyclerView.Adapter<Recycler
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Person dataItem = mDataSource.get(position);
+        Participant dataItem = mDataSource.get(position);
         holder.nameTextView.setText(dataItem.getName());
         holder.seedTextView.setText(dataItem.getSeed());
     }
@@ -60,7 +60,7 @@ public class RecyclerRandomizerListAdapter extends RecyclerView.Adapter<Recycler
         public ViewHolder(View view) {
             super(view);
             nameTextView = (TextView) view.findViewById(R.id.randomizer_item_name);
-            seedTextView = (TextView) view.findViewById(R.id.randomizer_item_seeds);
+            seedTextView = (TextView) view.findViewById(R.id.randomizer_item_seed);
         }
     }
 }

@@ -11,15 +11,14 @@
         android:layout_centerVertical="true"
         android:paddingEnd="@dimen/large_padding"
         android:paddingStart="@dimen/large_padding"
+        android:onClick="onBackClicked"
         android:src="@drawable/ic_back" />
 
     <TextView
         android:id="@+id/title_text_view"
-        fontPath="@string/font_path_york_ville"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:gravity="center"
         android:text="@string/app_name"
         android:textColor="@color/header_title_color"
         android:textSize="@dimen/header_title_text_size"

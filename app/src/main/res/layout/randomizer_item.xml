@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/light_green"
     android:orientation="horizontal"
-    android:padding="@dimen/large_padding">
+    android:padding="@dimen/normal_padding">
 
     <TextView
         android:id="@+id/randomizer_item_name"
@@ -21,7 +21,7 @@
         android:layout_weight="1" />
 
     <TextView
-        android:id="@+id/randomizer_item_seeds"
+        android:id="@+id/randomizer_item_seed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/randomizer_item_margin"

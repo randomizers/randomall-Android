@@ -14,6 +14,9 @@ import android.support.test.runner.AndroidJUnit4;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.hackathon.random.utils.Constants;
+import com.example.hackathon.random.utils.PreferenceUtils;
+
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.junit.After;
@@ -28,6 +31,8 @@ import java.util.concurrent.TimeUnit;
 
 import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
 import static org.hamcrest.core.IsNull.notNullValue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * Created by eastagile on 12/25/15.
@@ -41,10 +46,16 @@ public abstract class BaseEspressoActivityTest {
 
     protected List<IdlingResource> mIdlingResources = new ArrayList<>();
     private List<Integer> mIdlingTimeOuts = new ArrayList<>();
+    protected static PreferenceUtils mockPreferenceUtils;
 
     @BeforeClass
     public static void setUpClass() throws Exception {
         System.setProperty("dexmaker.dexcache", InstrumentationRegistry.getTargetContext().getCacheDir().getPath());
+
+        mockPreferenceUtils  = mock(PreferenceUtils.class);
+        when(mockPreferenceUtils.getRandomMethod()).thenReturn(Constants.RANDOM_METHOD_TEAMS);
+        when(mockPreferenceUtils.getCategory()).thenReturn(Constants.CATEGORY_SEED);
+        PreferenceUtils.setInstance(mockPreferenceUtils);
     }
 
     @Before

@@ -15,7 +15,7 @@ public class Constants {
     public static final String RANDOM_METHOD_GROUPS = "Groups";
 
     // Category
-    public static final String CATEGORY_SEED = "Groups";
+    public static final String CATEGORY_SEED = "Seed";
     public static final String CATEGORY_STRENGTH = "Strength";
     public static final String CATEGORY_NONE = "None";
 

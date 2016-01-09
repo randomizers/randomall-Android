@@ -1,6 +1,6 @@
 package com.example.hackathon.random.suite;
 
-import com.example.hackathon.random.unit.PersonTest;
+import com.example.hackathon.random.unit.ParticipantTest;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -9,7 +9,7 @@ import org.junit.runners.Suite;
  * Created by EastAgile Team on 12/31/15.
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({PersonTest.class})
+@Suite.SuiteClasses({ParticipantTest.class})
 public class UnitTestSuite {
 
 }

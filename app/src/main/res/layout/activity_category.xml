@@ -38,7 +38,7 @@
                 android:id="@+id/btn_strength"
                 style="@style/blue_button"
                 android:onClick="onStrengthClicked"
-                android:text="@string/seed" />
+                android:text="@string/strength" />
 
             <Button
                 android:id="@+id/btn_none"

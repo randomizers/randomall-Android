@@ -16,8 +16,7 @@ public class PreferenceUtils {
 
     private PreferenceUtils() {
         mContext = RandomAllApplication.applicationContext;
-        mSharedPreferences = PreferenceManager
-                .getDefaultSharedPreferences(mContext);
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
     }
 
     public static PreferenceUtils getInstance() {
