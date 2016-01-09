@@ -1,5 +1,18 @@
 <resources>
-    <string name="app_name">Random</string>
+    <string name="app_name">Randomizer</string>
     <string name="back">Back</string>
     <string name="next">Next</string>
+
+    <string name="font_path_open_sans_light">fonts/OpenSans-Light.ttf</string>
+    <string name="font_path_york_ville">fonts/Yorkville.ttf</string>
+    <string name="main_title_text">How do you want\nto randomize?</string>
+    <string name="players">Players</string>
+    <string name="main_info_text_1">A simple list of players to randomize\ntheir order</string>
+    <string name="teams">Teams</string>
+    <string name="main_info_text_2">A list of players to randomize them\ninto different teams</string>
+    <string name="groups">Groups</string>
+    <string name="main_info_text_3">A list of teams to randomize\nthem into different groups</string>
+    <string name="seed">Seed</string>
+    <string name="strength">Strength</string>
+    <string name="none">None</string>
 </resources>

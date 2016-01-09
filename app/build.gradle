@@ -46,6 +46,7 @@ dependencies {
     compile 'io.realm:realm-android:0.82.2'
     compile 'de.greenrobot:eventbus:2.4.0'
     compile 'com.android.support:recyclerview-v7:23.1.1'
+    compile 'uk.co.chrisjenx:calligraphy:2.1.0'
 
     androidTestCompile 'org.mockito:mockito-core:2.0.5-beta'
     androidTestCompile 'com.google.dexmaker:dexmaker:1.2'

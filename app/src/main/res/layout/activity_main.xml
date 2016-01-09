@@ -8,8 +8,56 @@
 
     <include layout="@layout/action_bar" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/share_background" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/main_title_margin"
+                android:text="@string/main_title_text"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/main_title_text_size" />
+
+            <Button
+                android:id="@+id/btn_players"
+                style="@style/blue_button"
+                android:onClick="onPlayersClicked"
+                android:text="@string/players" />
+
+            <TextView
+                style="@style/main_info_text"
+                android:text="@string/main_info_text_1" />
+
+            <Button
+                android:id="@+id/btn_teams"
+                style="@style/blue_button"
+                android:onClick="onTeamsClicked"
+                android:text="@string/teams" />
+
+            <TextView
+                style="@style/main_info_text"
+                android:text="@string/main_info_text_2" />
+
+            <Button
+                android:id="@+id/btn_groups"
+                style="@style/blue_button"
+                android:onClick="onGroupsClicked"
+                android:text="@string/groups" />
+
+            <TextView
+                style="@style/main_info_text"
+                android:text="@string/main_info_text_3" />
+        </LinearLayout>
+    </FrameLayout>
+
 </LinearLayout>
