@@ -1,0 +1,22 @@
+machine:
+  environment:
+    APP_HOME : /home/AndroidStudioProjects/randomall-Android/app
+    ADB_INSTALL_TIMEOUT : 20
+test:
+  override:
+    - emulator -avd circleci-android22 -netdelay none -netspeed full -no-audio:
+        background: true
+        parallel: true
+    - circle-android wait-for-boot
+    - ./gradlew jacocoTestReport -PdisablePreDex:
+        timeout: 2400
+    # rename the report folder of jacoco to meet the report name in the plugin
+    - mv $APP_HOME/build/reports/jacoco/jacocoTestReport $APP_HOME/build/reports/jacoco/test
+    - ./gradlew coveralls
+  post:
+    - echo 'Testing completed!!'
+    - cp -r $APP_HOME/build/reports/* $CIRCLE_ARTIFACTS
+    # copy the build outputs to artifacts
+    - cp -r $APP_HOME/build/outputs $CIRCLE_ARTIFACTS
+    # copy the test results to the test results directory.
+    - cp -r $APP_HOME/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
