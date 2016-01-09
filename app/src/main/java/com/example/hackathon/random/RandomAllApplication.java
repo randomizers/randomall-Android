@@ -7,6 +7,7 @@ import com.example.hackathon.random.utils.Constants;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
  * Created by EastAgile Team on 17/11/2014.
@@ -29,5 +30,10 @@ public class RandomAllApplication extends Application {
                 .deleteRealmIfMigrationNeeded()
                 .build();
         sRealm = Realm.getInstance(config);
+
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath(getString(R.string.font_path_open_sans_light))
+                .setFontAttrId(R.attr.fontPath)
+                .build());
     }
 }
