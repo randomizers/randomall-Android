@@ -14,8 +14,11 @@ import android.support.test.runner.AndroidJUnit4;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.hackathon.random.model.Participant;
+import com.example.hackathon.random.model.Team;
 import com.example.hackathon.random.utils.Constants;
 import com.example.hackathon.random.utils.PreferenceUtils;
+import com.example.hackathon.random.utils.Utils;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -26,6 +29,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -46,16 +50,24 @@ public abstract class BaseEspressoActivityTest {
 
     protected List<IdlingResource> mIdlingResources = new ArrayList<>();
     private List<Integer> mIdlingTimeOuts = new ArrayList<>();
-    protected static PreferenceUtils mockPreferenceUtils;
 
     @BeforeClass
     public static void setUpClass() throws Exception {
         System.setProperty("dexmaker.dexcache", InstrumentationRegistry.getTargetContext().getCacheDir().getPath());
 
-        mockPreferenceUtils  = mock(PreferenceUtils.class);
+        PreferenceUtils mockPreferenceUtils  = mock(PreferenceUtils.class);
         when(mockPreferenceUtils.getRandomMethod()).thenReturn(Constants.RANDOM_METHOD_TEAMS);
         when(mockPreferenceUtils.getCategory()).thenReturn(Constants.CATEGORY_SEED);
         PreferenceUtils.setInstance(mockPreferenceUtils);
+
+        List<Team> teams = new ArrayList<>();
+        Team team = new Team(Arrays.asList(new Participant("a1", "1"), new Participant("a2", "2"), new Participant("a3", "3")));
+        teams.add(team);
+        team = new Team(Arrays.asList(new Participant("c1", "1"), new Participant("c2", "2"), new Participant("c3", "3")));
+        teams.add(team);
+        Utils mockUtils = mock(Utils.class);
+        when(mockUtils.calculateTeams()).thenReturn(teams);
+        Utils.setInstance(mockUtils);
     }
 
     @Before

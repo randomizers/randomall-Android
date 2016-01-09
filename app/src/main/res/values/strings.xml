@@ -30,4 +30,6 @@
     <string name="save">Save</string>
     <string name="delete">Delete</string>
     <string name="cancel">Cancel</string>
+    <string name="team">Team %s</string>
+    <string name="list_name">List Name</string>
 </resources>

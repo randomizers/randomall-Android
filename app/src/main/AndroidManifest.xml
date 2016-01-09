@@ -19,6 +19,7 @@
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.CategoryActivity" />
         <activity android:name=".activity.RandomizerActivity" />
+        <activity android:name=".activity.ResultActivity" />
     </application>
 
 </manifest>

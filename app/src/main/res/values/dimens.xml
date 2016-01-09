@@ -12,6 +12,7 @@
     <dimen name="small_padding">7dp</dimen>
     <dimen name="normal_padding">10dp</dimen>
     <dimen name="large_padding">20dp</dimen>
+    <dimen name="extra_large_padding">40dp</dimen>
     <dimen name="action_bar_divider">1px</dimen>
     <dimen name="blue_button_width">160dp</dimen>
     <dimen name="button_margin_bottom">10dp</dimen>

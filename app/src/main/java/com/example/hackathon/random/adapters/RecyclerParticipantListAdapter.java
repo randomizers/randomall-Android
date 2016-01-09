@@ -16,12 +16,12 @@ import java.util.List;
 /**
  * Created by hackathon on 1/9/16.
  */
-public class RecyclerRandomizerListAdapter extends RecyclerView.Adapter<RecyclerRandomizerListAdapter.ViewHolder> {
+public class RecyclerParticipantListAdapter extends RecyclerView.Adapter<RecyclerParticipantListAdapter.ViewHolder> {
 
     private List<Participant> mDataSource;
     private Context mContext;
 
-    public RecyclerRandomizerListAdapter(Context context, List<Participant> dataSource) {
+    public RecyclerParticipantListAdapter(Context context, List<Participant> dataSource) {
         mContext = context;
         if (dataSource == null) {
             mDataSource = new ArrayList<>();
@@ -37,7 +37,7 @@ public class RecyclerRandomizerListAdapter extends RecyclerView.Adapter<Recycler
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.randomizer_item, parent, false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.participant_list_item, parent, false);
         return new ViewHolder(view);
     }
 

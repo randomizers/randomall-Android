@@ -1,0 +1,82 @@
+package com.example.hackathon.random.model;
+
+import com.example.hackathon.random.database.helpers.Realmable;
+import com.example.hackathon.random.database.models.RealmParticipant;
+import com.example.hackathon.random.database.models.RealmResult;
+import com.example.hackathon.random.database.models.RealmTeam;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import io.realm.RealmList;
+import io.realm.RealmObject;
+
+/**
+ * Created by hackathon on 1/9/16.
+ */
+public class Result implements Realmable {
+
+    private String name;
+    private List<Team> teams;
+
+    public Result(String name, List<Team> teams) {
+        this.name = name;
+        this.teams = teams;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Team> getTeams() {
+        return teams;
+    }
+
+    public void setTeams(List<Team> teams) {
+        this.teams = teams;
+    }
+
+    @Override
+    public RealmObject toRealmObject() {
+        RealmResult realmResult = new RealmResult();
+        realmResult.setName(name);
+        RealmList<RealmTeam> realmTeams = new RealmList<>();
+        for (Team team : teams) {
+            RealmTeam realmTeam = new RealmTeam();
+            RealmList<RealmParticipant> realmParticipants = new RealmList<>();
+            for (Participant participant : team.getParticipants()) {
+                RealmParticipant realmParticipant = new RealmParticipant();
+                realmParticipant.setName(participant.getName());
+                realmParticipant.setSeed(participant.getSeed());
+                realmParticipants.add(realmParticipant);
+                realmTeam.setRealmParticipants(realmParticipants);
+            }
+            realmTeams.add(realmTeam);
+        }
+        realmResult.setRealmTeams(realmTeams);
+
+        return realmResult;
+    }
+
+    @Override
+    public Realmable setDataFromRealmObject(RealmObject realmObject) {
+        RealmResult realmResult = (RealmResult) realmObject;
+        name = realmResult.getName();
+        RealmList<RealmTeam> realmTeams = realmResult.getRealmTeams();
+        for (RealmTeam realmTeam : realmTeams) {
+            List<Participant> participants = new ArrayList<>();
+            for (RealmParticipant realmParticipant : realmTeam.getRealmParticipants()) {
+                Participant participant = new Participant(realmParticipant.getName(), realmParticipant.getSeed());
+                participants.add(participant);
+            }
+            Team team = new Team(participants);
+            teams.add(team);
+        }
+
+        return this;
+    }
+}

@@ -1,12 +1,11 @@
 package com.example.hackathon.random.activity;
 
-import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -14,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hackathon.random.R;
-import com.example.hackathon.random.adapters.RecyclerRandomizerListAdapter;
+import com.example.hackathon.random.adapters.RecyclerParticipantListAdapter;
 import com.example.hackathon.random.model.Participant;
 import com.example.hackathon.random.utils.Constants;
 import com.example.hackathon.random.utils.PreferenceUtils;
@@ -33,7 +32,7 @@ import java.util.List;
 public class RandomizerActivity extends BaseActivity {
 
     private List<Participant> mParticipants;
-    private RecyclerRandomizerListAdapter mAdapter;
+    private RecyclerParticipantListAdapter mAdapter;
     private Spinner mMethodSpinner;
     private Spinner mCategorySpinner;
     private EditText mNameEditText;
@@ -87,7 +86,7 @@ public class RandomizerActivity extends BaseActivity {
         CustomLinearLayoutManager linearLayoutManager = new CustomLinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        mAdapter = new RecyclerRandomizerListAdapter(this, mParticipants);
+        mAdapter = new RecyclerParticipantListAdapter(this, mParticipants);
         recyclerView.setAdapter(mAdapter);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
@@ -134,6 +133,7 @@ public class RandomizerActivity extends BaseActivity {
     }
 
     public void onRandomizeClicked(View view) {
-
+        Intent intent = new Intent(this, ResultActivity.class);
+        startActivity(intent);
     }
 }
