@@ -1,5 +1,6 @@
 machine:
    environment:
+      ANDROID_HOME: /home/ubuntu/android
       APP_HOME : /home/ubuntu/randomall-Android
 dependencies:
    pre:
