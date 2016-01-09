@@ -1,8 +1,13 @@
 machine:
-   environment:
-      ANDROID_HOME: /home/ubuntu/android
-      APP_HOME : /home/ubuntu/randomall-Android
+  environment:
+    ANDROID_HOME: /home/ubuntu/android
+    APP_HOME : /home/ubuntu/randomall-Android
 dependencies:
-   pre:
-      - echo y | android update sdk --no-ui --all --filter "build-tools-23.0.1"
-      - chmod +x $APP_HOME/gradlew
+  pre:
+    - echo y | android update sdk --no-ui --all --filter "build-tools-23.0.1"
+    - chmod +x $APP_HOME/gradlew
+  cache_directories:
+    - ~/.android
+    - ~/android
+  override:
+    - ./install-dependencies.sh
