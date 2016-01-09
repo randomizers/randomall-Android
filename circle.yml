@@ -1,6 +1,6 @@
 machine:
    environment:
-      APP_HOME : /Users/hackathon/AndroidStudioProjects/randomall-Android/app
+      APP_HOME : /Users/hackathon/AndroidStudioProjects/randomall-Android
 dependencies:
    pre:
       - echo y | android update sdk --no-ui --all --filter "build-tools-23.0.1"
