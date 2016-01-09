@@ -5,14 +5,14 @@ package com.example.hackathon.random.model;
  */
 public class Person {
     private String name;
-    private String strength;
+    private String seed;
 
     public Person() {
     }
 
-    public Person(String name, String strength) {
+    public Person(String name, String seed) {
         this.name = name;
-        this.strength = strength;
+        this.seed = seed;
     }
 
     public String getName() {
@@ -23,19 +23,19 @@ public class Person {
         this.name = name;
     }
 
-    public String getStrength() {
-        return strength;
+    public String getSeed() {
+        return seed;
     }
 
-    public void setStrength(String strength) {
-        this.strength = strength;
+    public void setSeed(String seed) {
+        this.seed = seed;
     }
 
     @Override
     public String toString() {
         return "Person{" +
                 "name='" + name + '\'' +
-                ", strength='" + strength + '\'' +
+                ", seed='" + seed + '\'' +
                 '}';
     }
 }

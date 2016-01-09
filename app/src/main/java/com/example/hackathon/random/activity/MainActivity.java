@@ -31,7 +31,9 @@ public class MainActivity extends BaseActivity {
     }
 
     public void onPlayersClicked(View view) {
-        launchCategoryScreen(Constants.RANDOM_METHOD_PLAYERS);
+        PreferenceUtils.getInstance().saveRandomMethod(Constants.RANDOM_METHOD_PLAYERS);
+        Intent intent = new Intent(this, RandomizerActivity.class);
+        startActivity(intent);
     }
 
     public void onTeamsClicked(View view) {

@@ -4,4 +4,6 @@
     <color name="header_title_color">#50E3C2</color>
     <color name="background_color">#5AC1A6</color>
     <color name="blue_color">#4A90E2</color>
+    <color name="light_green">#C6E9E0</color>
+    <color name="dark_green">#2F8471</color>
 </resources>

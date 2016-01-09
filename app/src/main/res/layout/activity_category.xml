@@ -24,7 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/main_title_margin"
-                android:text="How do you want\nto categorize?"
+                android:text="@string/category_title_text"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/main_title_text_size" />
 
@@ -35,13 +35,13 @@
                 android:text="@string/seed" />
 
             <Button
-                android:id="@+id/btn_teams"
+                android:id="@+id/btn_strength"
                 style="@style/blue_button"
                 android:onClick="onStrengthClicked"
-                android:text="@string/strength" />
+                android:text="@string/seed" />
 
             <Button
-                android:id="@+id/btn_groups"
+                android:id="@+id/btn_none"
                 style="@style/blue_button"
                 android:onClick="onNoneClicked"
                 android:text="@string/none" />

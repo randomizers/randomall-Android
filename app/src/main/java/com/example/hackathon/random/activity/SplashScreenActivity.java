@@ -12,7 +12,7 @@ import com.example.hackathon.random.R;
  */
 public class SplashScreenActivity extends AppCompatActivity {
 
-    private static final int SPLASH_TIME_OUT = 1500;
+    private static final int SPLASH_TIME_OUT = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

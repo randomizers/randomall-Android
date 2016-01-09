@@ -1,14 +1,15 @@
 <resources>
     <!-- Text size -->
     <dimen name="header_title_text_size">24sp</dimen>
-    <dimen name="button_text_size">20sp</dimen>
-    <dimen name="info_text_size">12sp</dimen>
+    <dimen name="standard_text_size">20sp</dimen>
+    <dimen name="small_text_size">12sp</dimen>
     <dimen name="main_title_text_size">36sp</dimen>
 
     <!--  -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="action_bar_height">45dp</dimen>
+    <dimen name="small_padding">7dp</dimen>
     <dimen name="normal_padding">10dp</dimen>
     <dimen name="large_padding">20dp</dimen>
     <dimen name="action_bar_divider">1px</dimen>
@@ -18,4 +19,6 @@
     <dimen name="main_title_margin">20dp</dimen>
     <dimen name="blue_button_bg_padding">10dp</dimen>
     <dimen name="blue_button_bg_radius">24dp</dimen>
+    <dimen name="randomizer_item_margin">10dp</dimen>
+    <dimen name="seed_edit_text_width">100dp</dimen>
 </resources>
