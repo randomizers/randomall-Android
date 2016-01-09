@@ -1,7 +1,12 @@
 machine:
   environment:
+    ANDROID_HOME: /home/Library/Android/sdk
     APP_HOME : /home/AndroidStudioProjects/randomall-Android/app
     ADB_INSTALL_TIMEOUT : 20
+dependencies:
+  cache_directories:
+    - ~/.android
+    - ~/android
 test:
   override:
     - emulator -avd circleci-android22 -netdelay none -netspeed full -no-audio:
