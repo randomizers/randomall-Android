@@ -34,11 +34,19 @@
                 android:onClick="onSeedClicked"
                 android:text="@string/seed" />
 
+            <TextView
+                style="@style/main_info_text"
+                android:text="@string/category_info_text_seed" />
+
             <Button
                 android:id="@+id/btn_strength"
                 style="@style/blue_button"
                 android:onClick="onStrengthClicked"
                 android:text="@string/strength" />
+
+            <TextView
+                style="@style/main_info_text"
+                android:text="@string/category_info_text_strength" />
 
             <Button
                 android:id="@+id/btn_none"

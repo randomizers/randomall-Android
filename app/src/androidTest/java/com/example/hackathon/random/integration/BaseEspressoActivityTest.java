@@ -14,7 +14,10 @@ import android.support.test.runner.AndroidJUnit4;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.hackathon.random.database.helpers.RealmDatabaseHelper;
+import com.example.hackathon.random.model.EditResult;
 import com.example.hackathon.random.model.Participant;
+import com.example.hackathon.random.model.Result;
 import com.example.hackathon.random.model.Team;
 import com.example.hackathon.random.utils.Constants;
 import com.example.hackathon.random.utils.PreferenceUtils;
@@ -35,6 +38,9 @@ import java.util.concurrent.TimeUnit;
 
 import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
 import static org.hamcrest.core.IsNull.notNullValue;
+import static org.mockito.Matchers.anyInt;
+import static org.mockito.Matchers.anyList;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -66,8 +72,20 @@ public abstract class BaseEspressoActivityTest {
         team = new Team(1, Arrays.asList(new Participant("c1", "1"), new Participant("c2", "2"), new Participant("c3", "3")));
         teams.add(team);
         Utils mockUtils = mock(Utils.class);
-        when(mockUtils.calculateTeams()).thenReturn(teams);
+        when(mockUtils.doSeed(anyList(), anyInt())).thenReturn(teams);
         Utils.setInstance(mockUtils);
+
+        Result result = new Result("Test", teams);
+        List<Participant> participants = new ArrayList<>();
+        participants.addAll(Arrays.asList(new Participant("a1", "1"), new Participant("a2", "2"), new Participant("a3", "3")));
+        participants.addAll(Arrays.asList(new Participant("c1", "1"), new Participant("c2", "2"), new Participant("c3", "3")));
+        EditResult editResult = new EditResult(Constants.RANDOM_METHOD_TEAMS,Constants.CATEGORY_SEED, participants, "2");
+
+        RealmDatabaseHelper mockRealmDatabaseHelper = mock(RealmDatabaseHelper.class);
+        when(mockRealmDatabaseHelper.getResult(anyString())).thenReturn(result);
+        when(mockRealmDatabaseHelper.getResults()).thenReturn(Arrays.asList(result));
+        when(mockRealmDatabaseHelper.getEditResult(anyString())).thenReturn(editResult);
+        RealmDatabaseHelper.setInstance(mockRealmDatabaseHelper);
     }
 
     @Before
@@ -75,6 +93,7 @@ public abstract class BaseEspressoActivityTest {
         addIdlingResourceTimeout(IDLING_TIME_OUT);
         Intents.init();
         prepareTestActivity();
+        Espresso.closeSoftKeyboard();
     }
 
     @After

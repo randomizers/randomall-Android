@@ -12,9 +12,6 @@ public class Participant implements Realmable {
     private String name;
     private String seed;
 
-    public Participant() {
-    }
-
     public Participant(String name, String seed) {
         this.name = name;
         this.seed = seed;
@@ -60,5 +57,16 @@ public class Participant implements Realmable {
         seed = realmParticipant.getSeed();
 
         return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Participant that = (Participant) o;
+
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        return !(seed != null ? !seed.equals(that.seed) : that.seed != null);
     }
 }

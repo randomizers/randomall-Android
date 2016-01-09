@@ -22,4 +22,8 @@ public class Constants {
     // Preference
     public static final String PREFERENCE_RANDOM_METHOD = "random_method";
     public static final String PREFERENCE_CATEGORY = "random_category";
+
+    // Intent
+    public static final String INTENT_RESULT_NAME = "result_name";
+    public static final String INTENT_IS_SAVED = "is_saved";
 }

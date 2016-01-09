@@ -1,13 +1,9 @@
 package com.example.hackathon.random.activity;
 
-import android.app.KeyguardManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 
-import com.example.hackathon.random.BuildConfig;
 import com.example.hackathon.random.R;
 import com.example.hackathon.random.utils.Constants;
 import com.example.hackathon.random.utils.PreferenceUtils;
@@ -19,16 +15,6 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         PreferenceUtils.getInstance().resetData();
-        unlockCircleCiAvdScreen();
-    }
-
-    private void unlockCircleCiAvdScreen() {
-        if (BuildConfig.DEBUG) {
-            KeyguardManager km = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
-            KeyguardManager.KeyguardLock keyguardLock = km.newKeyguardLock(MainActivity.class.getSimpleName());
-            keyguardLock.disableKeyguard();
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
-        }
     }
 
     public void onPlayersClicked(View view) {

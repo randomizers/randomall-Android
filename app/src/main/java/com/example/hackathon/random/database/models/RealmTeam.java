@@ -8,6 +8,7 @@ import io.realm.annotations.PrimaryKey;
  * Created by hackathon on 1/9/16.
  */
 public class RealmTeam extends RealmObject {
+    public static final String TEAM_ID = "position";
 
     @PrimaryKey
     private int position;

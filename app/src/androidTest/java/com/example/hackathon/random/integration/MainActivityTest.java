@@ -9,6 +9,9 @@ import com.example.hackathon.random.activity.CategoryActivity;
 import com.example.hackathon.random.activity.MainActivity;
 import com.example.hackathon.random.activity.RandomizerActivity;
 
+import org.junit.Rule;
+import org.junit.Test;
+
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
@@ -18,10 +21,6 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
-import static org.hamcrest.Matchers.is;
-
-import org.junit.Rule;
-import org.junit.Test;
 
 /**
  * Created by hackathon on 1/9/16.

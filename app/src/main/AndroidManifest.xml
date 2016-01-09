@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hackathon.random">
 
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
     <application
         android:name=".RandomAllApplication"
         android:allowBackup="true"
@@ -16,10 +19,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.CategoryActivity" />
-        <activity android:name=".activity.RandomizerActivity" />
-        <activity android:name=".activity.ResultActivity" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.CategoryActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.RandomizerActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.ResultActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.SavedListActivity"
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>

@@ -12,8 +12,9 @@ test:
         background: true
         parallel: true
     - circle-android wait-for-boot
+    - sleep 60
     - ./gradlew jacocoTestReport -PdisablePreDex:
-        timeout: 2400
+        timeout: 6000
     # rename the report folder of jacoco to meet the report name in the plugin
     - mv $APP_HOME/build/reports/jacoco/jacocoTestReport $APP_HOME/build/reports/jacoco/test
     - ./gradlew coveralls

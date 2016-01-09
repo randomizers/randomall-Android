@@ -3,6 +3,10 @@ package com.example.hackathon.random.database.helpers;
 import android.util.Log;
 
 import com.example.hackathon.random.RandomAllApplication;
+import com.example.hackathon.random.database.models.RealmEditResult;
+import com.example.hackathon.random.database.models.RealmResult;
+import com.example.hackathon.random.model.EditResult;
+import com.example.hackathon.random.model.Result;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +29,14 @@ public class RealmDatabaseHelper {
         if (sInstance == null)
             sInstance = new RealmDatabaseHelper();
         return sInstance;
+    }
+
+    public static void setInstance(RealmDatabaseHelper instance) {
+        sInstance = instance;
+    }
+
+    public static void reset() {
+        sInstance = null;
     }
 
     private RealmDatabaseHelper() {
@@ -163,5 +175,29 @@ public class RealmDatabaseHelper {
         } catch (RealmError e) {
             e.printStackTrace();
         }
+    }
+
+    public Result getResult(String name) {
+        Result result = new Result();
+        result = (Result) RealmDatabaseHelper.getInstance().findObject(RealmResult.class, RealmResult.RESULT_ID, name, result);
+        return result;
+    }
+
+    public List<Result> getResults() {
+        RealmResults<RealmResult> realmResults = RealmDatabaseHelper.getInstance().findObjects(RealmResult.class);
+        List<Result> results = new ArrayList<>();
+        if (realmResults != null) {
+            for (RealmResult realmResult : realmResults) {
+                Result result = new Result();
+                results.add((Result) result.setDataFromRealmObject(realmResult));
+            }
+        }
+        return results;
+    }
+
+    public EditResult getEditResult(String name) {
+        EditResult result = new EditResult();
+        result = (EditResult) RealmDatabaseHelper.getInstance().findObject(RealmEditResult.class, RealmEditResult.EDIT_RESULT_ID, name, result);
+        return result;
     }
 }

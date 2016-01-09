@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.hackathon.random.MainActivity">
+
+    <include layout="@layout/action_bar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/share_background" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/start_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/large_padding"
+                android:layout_marginTop="@dimen/large_padding"
+                android:background="@drawable/bg_green_button"
+                android:onClick="onStartNewClicked"
+                android:paddingEnd="@dimen/large_padding"
+                android:paddingStart="@dimen/large_padding"
+                android:text="@string/start_new"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/standard_text_size" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/saved_list_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

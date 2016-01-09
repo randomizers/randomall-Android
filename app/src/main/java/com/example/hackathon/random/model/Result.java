@@ -17,7 +17,12 @@ import io.realm.RealmObject;
 public class Result implements Realmable {
 
     private String name;
-    private List<Team> teams;
+    private List<Team> teams = new ArrayList<>();
+
+    public Result() {
+        name = "";
+        teams = new ArrayList<>();
+    }
 
     public Result(String name, List<Team> teams) {
         this.name = name;
@@ -53,8 +58,9 @@ public class Result implements Realmable {
                 realmParticipant.setName(participant.getName());
                 realmParticipant.setSeed(participant.getSeed());
                 realmParticipants.add(realmParticipant);
-                realmTeam.setRealmParticipants(realmParticipants);
             }
+            realmTeam.setRealmParticipants(realmParticipants);
+            realmTeam.setPosition(team.getPosition());
             realmTeams.add(realmTeam);
         }
         realmResult.setRealmTeams(realmTeams);

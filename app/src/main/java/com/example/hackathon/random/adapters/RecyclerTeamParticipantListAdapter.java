@@ -5,10 +5,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.example.hackathon.random.R;
 import com.example.hackathon.random.model.Participant;
+import com.example.hackathon.random.views.Typewriter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +47,21 @@ public class RecyclerTeamParticipantListAdapter extends RecyclerView.Adapter<Rec
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Participant dataItem = mDataSource.get(position);
-        holder.nameTextView.setText(dataItem.getName());
+//        holder.nameTextView.setCharacterDelay(150);
+        holder.nameTextView.animateText(dataItem.getName());
+        holder.seedTextView.setText(dataItem.getSeed());
+        setAnimation(holder.container, position);
+    }
+
+    int lastPosition = -1;
+    private void setAnimation(View viewToAnimate, int position) {
+        // If the bound view wasn't previously displayed on screen, it's animated
+        if (position > lastPosition) {
+            Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.push_left_in);
+            animation.setStartOffset(1000 * position);
+            viewToAnimate.startAnimation(animation);
+            lastPosition = position;
+        }
     }
 
     @Override
@@ -53,11 +70,15 @@ public class RecyclerTeamParticipantListAdapter extends RecyclerView.Adapter<Rec
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView nameTextView;
+        View container;
+        Typewriter nameTextView;
+        TextView seedTextView;
 
         public ViewHolder(View view) {
             super(view);
-            nameTextView = (TextView) view.findViewById(R.id.team_participant_item_name);
+            container = view.findViewById(R.id.container);
+            nameTextView = (Typewriter) view.findViewById(R.id.team_participant_item_name);
+            seedTextView = (TextView) view.findViewById(R.id.randomizer_item_seed);
         }
     }
 }

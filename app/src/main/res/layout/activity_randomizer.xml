@@ -118,12 +118,14 @@
                     android:textSize="@dimen/small_text_size" />
 
                 <TextView
+                    android:id="@+id/team_number_textview"
                     style="@style/randomize_header_text"
-                    android:text="@string/number_of_team" />
+                    android:text="@string/number_of_teams" />
 
                 <EditText
                     android:id="@+id/randomizer_team_num_edit_text"
                     style="@style/randomize_edit_text"
+                    android:inputType="number"
                     android:layout_width="match_parent" />
 
                 <Button

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.hackathon.random.R;
 import com.example.hackathon.random.model.Team;
+import com.example.hackathon.random.utils.Constants;
 import com.example.hackathon.random.views.CustomLinearLayoutManager;
 
 import java.util.ArrayList;
@@ -22,14 +23,16 @@ public class RecyclerTeamListAdapter extends RecyclerView.Adapter<RecyclerTeamLi
 
     private List<Team> mDataSource;
     private Context mContext;
+    private String mMethod;
 
-    public RecyclerTeamListAdapter(Context context, List<Team> dataSource) {
+    public RecyclerTeamListAdapter(Context context, List<Team> dataSource, String method) {
         mContext = context;
         if (dataSource == null) {
             mDataSource = new ArrayList<>();
         } else {
             mDataSource = dataSource;
         }
+        mMethod = method;
     }
 
     public void updateDataSource(List<Team> dataSource) {
@@ -45,7 +48,11 @@ public class RecyclerTeamListAdapter extends RecyclerView.Adapter<RecyclerTeamLi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.titleTextView.setText(String.format(mContext.getString(R.string.team), String.valueOf(position + 1)));
+        if (mMethod.equals(Constants.RANDOM_METHOD_GROUPS)) {
+            holder.titleTextView.setText(String.format(mContext.getString(R.string.group_text), String.valueOf(position + 1)));
+        } else {
+            holder.titleTextView.setText(String.format(mContext.getString(R.string.team_text), String.valueOf(position + 1)));
+        }
         Team dataItem = mDataSource.get(position);
 
         CustomLinearLayoutManager linearLayoutManager = new CustomLinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);

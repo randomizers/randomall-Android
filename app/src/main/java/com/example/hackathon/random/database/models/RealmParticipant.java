@@ -7,6 +7,7 @@ import io.realm.annotations.PrimaryKey;
  * Created by hackathon on 1/9/16.
  */
 public class RealmParticipant extends RealmObject {
+    public static final String PARTICIPANT_ID = "name";
 
     @PrimaryKey
     private String name;

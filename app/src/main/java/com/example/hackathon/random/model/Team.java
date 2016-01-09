@@ -4,6 +4,7 @@ import com.example.hackathon.random.database.helpers.Realmable;
 import com.example.hackathon.random.database.models.RealmParticipant;
 import com.example.hackathon.random.database.models.RealmTeam;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.RealmList;
@@ -14,7 +15,7 @@ import io.realm.RealmObject;
  */
 public class Team implements Realmable {
     private int position;
-    private List<Participant> participants;
+    private List<Participant> participants = new ArrayList<>();
 
     public Team(int position, List<Participant> participants) {
         this.position = position;
@@ -64,5 +65,16 @@ public class Team implements Realmable {
         }
 
         return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Team team = (Team) o;
+
+        return !(participants != null ? !participants.equals(team.participants) : team.participants != null);
+
     }
 }
