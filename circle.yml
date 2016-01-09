@@ -1,6 +1,6 @@
 machine:
    environment:
-      APP_HOME : /home/ubuntu/WaTD-Devices
+      APP_HOME : /Users/hackathon/AndroidStudioProjects/randomall-Android/app
 dependencies:
    pre:
       - echo y | android update sdk --no-ui --all --filter "build-tools-23.0.1"
