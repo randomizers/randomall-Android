@@ -24,8 +24,11 @@ import com.example.hackathon.random.views.CustomLinearLayoutManager;
 import com.example.hackathon.random.views.DividerItemDecoration;
 import com.example.hackathon.random.views.SaveListDialog;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by hackathon on 1/9/16.
@@ -94,7 +97,9 @@ public class ResultActivity extends BaseActivity {
         SaveListDialog dialog = new SaveListDialog(ResultActivity.this, new SaveListDialog.ListSaveDialogCallback() {
             @Override
             public void onSaveSelected(String name) {
-                Result result = new Result(name, mTeams);
+                Calendar calendar = Calendar.getInstance();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
+                Result result = new Result(name, mTeams, sdf.format(calendar.getTime()));
                 RealmDatabaseHelper.getInstance().copyToRealmOrUpdate(result);
                 if (mEditResult != null) {
                     RealmDatabaseHelper.getInstance().deleteRealmObject(RealmEditResult.class, RealmEditResult.EDIT_RESULT_ID, mEditResult.getResultName());

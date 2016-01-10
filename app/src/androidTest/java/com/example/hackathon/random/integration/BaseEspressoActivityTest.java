@@ -75,7 +75,7 @@ public abstract class BaseEspressoActivityTest {
         when(mockUtils.doSeed(anyList(), anyInt())).thenReturn(teams);
         Utils.setInstance(mockUtils);
 
-        Result result = new Result("Test", teams);
+        Result result = new Result("Test", teams, "2016/01/10");
         List<Participant> participants = new ArrayList<>();
         participants.addAll(Arrays.asList(new Participant("a1", "1"), new Participant("a2", "2"), new Participant("a3", "3")));
         participants.addAll(Arrays.asList(new Participant("c1", "1"), new Participant("c2", "2"), new Participant("c3", "3")));

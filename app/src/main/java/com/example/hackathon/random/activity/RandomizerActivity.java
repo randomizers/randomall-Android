@@ -36,8 +36,7 @@ public class RandomizerActivity extends BaseActivity {
 
     private static final List<String> METHOD_ITEMS = Arrays.asList(Constants.RANDOM_METHOD_PLAYERS,
             Constants.RANDOM_METHOD_TEAMS, Constants.RANDOM_METHOD_GROUPS);
-    private static final List<String> CATEGORY_ITEMS = Arrays.asList(Constants.CATEGORY_SEED,
-            Constants.CATEGORY_STRENGTH, Constants.CATEGORY_NONE);
+    private static final List<String> CATEGORY_ITEMS = Arrays.asList(Constants.CATEGORY_SEED, Constants.CATEGORY_NONE);
 
     private List<Participant> mParticipants;
     private RecyclerParticipantListAdapter mAdapter;

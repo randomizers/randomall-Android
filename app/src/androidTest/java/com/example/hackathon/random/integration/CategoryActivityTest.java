@@ -59,12 +59,6 @@ public class CategoryActivityTest extends BaseEspressoActivityTest {
     }
 
     @Test
-    public void testMainActivity_strength_button_click() throws Exception {
-        onView(withId(R.id.btn_strength)).perform(click());
-        intended(hasComponent(RandomizerActivity.class.getName()));
-    }
-
-    @Test
     public void testMainActivity_none_button_click() throws Exception {
         onView(withId(R.id.btn_none)).perform(click());
         intended(hasComponent(RandomizerActivity.class.getName()));

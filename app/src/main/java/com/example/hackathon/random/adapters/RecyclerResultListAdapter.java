@@ -46,7 +46,7 @@ public class RecyclerResultListAdapter extends RecyclerView.Adapter<RecyclerResu
     public void onBindViewHolder(ViewHolder holder, int position) {
         Result dataItem = mDataSource.get(position);
         holder.nameTextView.setText(dataItem.getName());
-        holder.seedTextView.setText("");
+        holder.seedTextView.setText(dataItem.getDate());
     }
 
     @Override

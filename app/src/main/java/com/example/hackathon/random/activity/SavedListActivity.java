@@ -16,6 +16,8 @@ import com.example.hackathon.random.views.CustomLinearLayoutManager;
 import com.example.hackathon.random.views.DividerItemDecoration;
 import com.example.hackathon.random.views.RecyclerItemClickListener;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -32,6 +34,15 @@ public class SavedListActivity extends BaseActivity {
 
     private void setupResultList() {
         final List<Result> resultList = RealmDatabaseHelper.getInstance().getResults();
+        Collections.sort(resultList, new Comparator<Result>() {
+            @Override
+            public int compare(Result lhs, Result rhs) {
+                if (lhs.getDate().compareTo(rhs.getDate()) == 0){
+                    return lhs.getName().compareTo(rhs.getName());
+                }
+                return lhs.getDate().compareTo(rhs.getDate());
+            }
+        });
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.saved_list_recyclerview);
 
         CustomLinearLayoutManager linearLayoutManager = new CustomLinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -43,6 +54,11 @@ public class SavedListActivity extends BaseActivity {
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, final int position) {
+                try {
+                    ActivityCompat.finishAffinity(SavedListActivity.this);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 Intent intent = new Intent(SavedListActivity.this, ResultActivity.class);
                 intent.putExtra(Constants.INTENT_RESULT_NAME, resultList.get(position).getName());
                 intent.putExtra(Constants.INTENT_IS_SAVED, true);

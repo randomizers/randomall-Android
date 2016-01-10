@@ -13,6 +13,7 @@ public class RealmResult extends RealmObject {
     @PrimaryKey
     private String name;
     private RealmList<RealmTeam> realmTeams;
+    private String date;
 
     public String getName() {
         return name;
@@ -28,5 +29,13 @@ public class RealmResult extends RealmObject {
 
     public void setRealmTeams(RealmList<RealmTeam> realmTeams) {
         this.realmTeams = realmTeams;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

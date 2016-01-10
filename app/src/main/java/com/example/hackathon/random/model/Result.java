@@ -18,15 +18,18 @@ public class Result implements Realmable {
 
     private String name;
     private List<Team> teams = new ArrayList<>();
+    private String date;
 
     public Result() {
         name = "";
         teams = new ArrayList<>();
+        date = "";
     }
 
-    public Result(String name, List<Team> teams) {
+    public Result(String name, List<Team> teams, String date) {
         this.name = name;
         this.teams = teams;
+        this.date = date;
     }
 
     public String getName() {
@@ -43,6 +46,14 @@ public class Result implements Realmable {
 
     public void setTeams(List<Team> teams) {
         this.teams = teams;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     @Override
@@ -64,6 +75,7 @@ public class Result implements Realmable {
             realmTeams.add(realmTeam);
         }
         realmResult.setRealmTeams(realmTeams);
+        realmResult.setDate(date);
 
         return realmResult;
     }
@@ -84,6 +96,7 @@ public class Result implements Realmable {
             teams.add(team);
             position++;
         }
+        date = realmResult.getDate();
 
         return this;
     }

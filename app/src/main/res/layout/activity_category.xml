@@ -40,9 +40,14 @@
 
             <Button
                 android:id="@+id/btn_strength"
-                style="@style/blue_button"
-                android:onClick="onStrengthClicked"
-                android:text="@string/strength" />
+                android:layout_width="@dimen/blue_button_width"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/normal_padding"
+                android:background="@drawable/bg_gray_button"
+                android:text="@string/strength"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/standard_text_size" />
 
             <TextView
                 style="@style/main_info_text"

@@ -59,6 +59,7 @@ public class Utils {
             }
         }
 
+        Log.e("TEST", teams.size() + "  ");
         return teams;
     }
 
