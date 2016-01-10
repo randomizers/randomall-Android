@@ -1,7 +1,7 @@
 machine:
   environment:
     APP_HOME : /home/ubuntu/randomall-Android
-    ADB_INSTALL_TIMEOUT : 40
+    ADB_INSTALL_TIMEOUT : 100
 dependencies:
   pre:
     - echo y | android update sdk --no-ui --all --filter "build-tools-23.0.1"
@@ -12,9 +12,9 @@ test:
         background: true
         parallel: true
     - circle-android wait-for-boot
-    - sleep 60
+    - sleep 100
     - ./gradlew jacocoTestReport -PdisablePreDex:
-        timeout: 6000
+        timeout: 12000
     # rename the report folder of jacoco to meet the report name in the plugin
     - mv $APP_HOME/build/reports/jacoco/jacocoTestReport $APP_HOME/build/reports/jacoco/test
     - ./gradlew coveralls
