@@ -38,6 +38,6 @@ public class UtilsTest extends AndroidTestCase {
     public void testDoSeed() throws Exception {
         List<Participant> participantList = Arrays.asList(new Participant("Bach", "1"), new Participant("Buu", "2"), new Participant("Quang", "3")
                 , new Participant("Kien", "2"), new Participant("Hoang", "5"), new Participant("Trinh", "3"));
-//        assertEquals("Number of teams should be 3", 3, (Utils.getInstance().doSeed(participantList, 3).size()));
+        assertEquals("Number of teams should be 3", 3, (Utils.getInstance().doSeed(participantList, 3).size()));
     }
 }

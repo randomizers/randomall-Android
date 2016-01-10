@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'jacoco'
-apply plugin: 'com.github.kt3k.coveralls'
 
 android {
     compileSdkVersion 23
@@ -39,16 +38,6 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
-    }
-}
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.0.1'
     }
 }
 
@@ -104,6 +93,9 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['connectedCheck', 'test'])
                       '**/BuildConfig.*',
                       '**/Manifest*.*',
                       '**/*Test*.*',
+                      '**/io.realm/**',
+                      '**io.realm**',
+                      '**/io.realm*',
                       'android/**/*.*']
     def debugTree = fileTree(dir: "${project.buildDir}/intermediates/classes/debug", excludes: fileFilter)
     def mainSrc = "${project.projectDir}/src/main/java"
@@ -123,9 +115,4 @@ subprojects {
             project.android.dexOptions.preDexLibraries = rootProject.ext.preDexLibs
         }
     }
-}
-
-tasks.coveralls {
-    dependsOn 'check'
-    onlyIf { System.getenv("COVERALLS_REPO_TOKEN") }
 }
